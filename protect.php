@@ -28,11 +28,13 @@
         if (isset($_COOKIE['my_website_password']) && array_key_exists($_COOKIE['my_website_password'], $passwords)) {
             $redirect_url = $passwords[$_COOKIE['my_website_password']];
     
-            if ($redirect_url != $current_url && $current_url != $password_protect_page && $redirect_url != $current_url_no_slash) {
+            if (($current_url == $password_protect_page || $current_url_no_slash == $password_protect_page) &&
+                ($redirect_url != $current_url && $redirect_url != $current_url_no_slash)
+            ) {
                 wp_safe_redirect($redirect_url);
                 exit;
             }
-        } elseif ($current_url != $password_protect_page) {
+        } elseif ($current_url != $password_protect_page && $current_url_no_slash != $password_protect_page) {
             wp_safe_redirect($password_protect_page);
             exit;
         }
