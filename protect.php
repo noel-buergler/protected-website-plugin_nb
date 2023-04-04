@@ -9,8 +9,8 @@
     */
     
     $passwords = array(
-        'de' => 'https://lorenzgiordano.ch/de',
-        'se' => 'https://lorenzgiordano.ch/se',
+        'password_a' => 'https://example.com/page-a',
+        'password_b' => 'https://example.com/page-b',
     );
     
     function password_protect_parse_request($wp) {
